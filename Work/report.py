@@ -55,10 +55,10 @@ def portfolio_report(portfolio_filename, prices, prices_filename):
 
 portfolio_report('Data/portfolio.csv', 'Data/prices.csv','Data/prices.csv')
 
+def main(args):
+    if len(args) != 3:
+        raise SystemExit('Usage: %s portfile pricefile' % args[0])
+    portfolio_report(args[1], args[2])
+
 if _name_ =='_main_':
     import sys
-
-    if len(sys.argv) != 3:
-        print('Usage: python report.py <portfolio.csv> <prices.csv>'
-    else:
-        portfolio_report(sys.argv[1], sys.argv[2])
