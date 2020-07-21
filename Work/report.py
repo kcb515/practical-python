@@ -55,4 +55,10 @@ def portfolio_report(portfolio_filename, prices, prices_filename):
 
 portfolio_report('Data/portfolio.csv', 'Data/prices.csv','Data/prices.csv')
 
-print('My _name_ is', __name__)
+if _name_ =='_main_':
+    import sys
+
+    if len(sys.argv) != 3:
+        print('Usage: python report.py <portfolio.csv> <prices.csv>'
+    else:
+        portfolio_report(sys.argv[1], sys.argv[2])

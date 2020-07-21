@@ -19,3 +19,7 @@ else:
 
 cost = portfolio_cost('Data/portfolio.csv')
 print('Total', cost)   
+
+if __name__ == '__main__':
+    import sys
+    main(sys.argv)
