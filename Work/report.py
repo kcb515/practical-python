@@ -5,7 +5,9 @@ import csv
 import fileparse
 from fileparse import parse_csv
 
-portfolio = fileparse.parse_csv(filename,select=['name','shares','price'], types=[str,int,float])  
+portfolio = fileparse.parse_csv(filename,
+                                select=['name','shares','price'],
+                                 types=[str,int,float])  
 return portfolio
 
 def read_prices(filename):
@@ -18,6 +20,10 @@ def read_prices(filename):
             prices[row[0]] = row[1]
         except IndexError:
             pass
+prices = parse_csv(filename,
+                    has_headers=False, 
+                    types=[str,float])
+prices = dict{prices}
     return prices
 
 portfolio = read_portfolio('Data/portfolio.csv')
