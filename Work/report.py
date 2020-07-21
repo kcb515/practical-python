@@ -2,22 +2,10 @@
 #
 # Exercise 2.4
 import csv
+import fileparse
 
-def read_portfolio(filename):
-    '''Read in the holdings from portfolio'''
-    portfolio = []
-
-    with open(filename, 'rt') as f:
-        rows = csv.reader(f)
-        headers = next(rows)
-        for row in rows:
-            holding = {'name':row[0],
-                       'shares': int(row[1]),
-                       'price' : float(row[2])
-                       }
-            portfolio.append(holding)
-            
-    return portfolio
+portfolio = fileparse.parse_csv(filename,select=['name','shares','price'], types=[str,int,float])  
+return portfolio
 
 def read_prices(filename):
     prices = {}
@@ -59,3 +47,5 @@ def portfolio_report(portfolio_filename, prices, prices_filename):
     print_report(report)
 
 portfolio_report('Data/portfolio.csv', 'Data/prices.csv','Data/prices.csv')
+
+print('My _name_ is', __name__)
