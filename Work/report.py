@@ -3,6 +3,7 @@
 # Exercise 2.4
 import csv
 import fileparse
+from fileparse import parse_csv
 
 portfolio = fileparse.parse_csv(filename,select=['name','shares','price'], types=[str,int,float])  
 return portfolio
