@@ -8,6 +8,9 @@ def parse_csv(filename, select=None, types=None, has_headers=True, delimiter=","
     '''
     Parse a CSV file into a list of records
     '''
+    if select and not has_headers:
+        raise RuntimeError("select argument requires column headers")
+    
     with open(filename) as f:
         if delimiter:
             rows = csv.reader(f, delimiter=delimiter)
@@ -48,3 +51,4 @@ records = parse_csv('Data/prices.csv', types=[str, float], has_headers=False)
 print(records)
 records = parse_csv('Data/portfolio.csv', types=[str, int, float], delimiter=" ")
 print(records)
+records = parse_csv('Data/prices.csv', select=['name','price'], has_header=False)
